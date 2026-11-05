@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  @apply bg-canvas font-sans text-body text-ink antialiased;
+  overflow-x: hidden;
+}
+
+/* Visible keyboard focus everywhere, in visa-blue. */
+:focus-visible {
+  outline: none;
+  @apply shadow-focus;
+}
+
+/* Money always uses tabular figures. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide scrollbars inside the phone frame without disabling scroll. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* No number spinners anywhere (amounts use text inputs with the number keypad). */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Slider: thick track, 28 px thumb, visa-blue. */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 44px;
+  background: transparent;
+  cursor: pointer;
+}
+.slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, theme("colors.visa.blue") var(--fill), theme("colors.line") var(--fill));
+}
+.slider::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: theme("colors.line");
+}
+.slider::-moz-range-progress {
+  height: 8px;
+  border-radius: 9999px;
+  background: theme("colors.visa.blue");
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -10px;
+  height: 28px;
+  width: 28px;
+  border-radius: 9999px;
+  background: theme("colors.white");
+  border: 2px solid theme("colors.visa.blue");
+  box-shadow: theme("boxShadow.card");
+}
+.slider::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 9999px;
+  background: theme("colors.white");
+  border: 2px solid theme("colors.visa.blue");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer {
+    animation: none;
+  }
+}
