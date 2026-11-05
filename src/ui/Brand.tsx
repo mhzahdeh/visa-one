@@ -18,7 +18,8 @@ export function Logo({
   onLongPress,
 }: {
   variant: "light" | "dark";
-  height: 20 | 40;
+  /** 20 px in headers, 40 px on splash and welcome, larger on the logo-only screen. Always scaled in proportion. */
+  height: 20 | 40 | 64;
   onLongPress?: () => void;
 }) {
   const timer = useRef<number | null>(null);

@@ -10,6 +10,7 @@ import { Habits } from "./screens/Habits";
 import { Plan } from "./screens/Plan";
 import { Ask } from "./screens/Ask";
 import { Control } from "./screens/Control";
+import { LogoScreen } from "./screens/LogoScreen";
 
 export default function App() {
   const { state } = useStore();
@@ -22,6 +23,9 @@ export default function App() {
   useEffect(() => {
     scrollRef.current?.scrollTo?.(0, 0);
   }, [location.pathname]);
+
+  // Logo-only screen: works before or after first use, no tab bar.
+  if (location.pathname === "/logo") return <LogoScreen />;
 
   if (!state.onboarded) {
     return <Onboarding onDone={() => navigate("/home")} />;
